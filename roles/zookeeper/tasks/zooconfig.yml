@@ -1,5 +1,6 @@
 ---
 # Delete zookeeper.properties and write new zookeeper.properties file into the Config
+
 - name: Delete existing Zookeeper properties
   file:
     path: "~/kafka/config/zookeeper.properties"

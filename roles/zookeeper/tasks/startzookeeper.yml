@@ -1,0 +1,7 @@
+---
+# Start zookeeper as a service
+- name: Start Zookeeper as a service
+  become: yes
+  service:
+    name: zookeeper
+    state: started  

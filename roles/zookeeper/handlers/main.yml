@@ -1,2 +1,16 @@
 ---
 # handlers file for zookeeper
+- name: zoo restart
+  service:
+    name: zookeeper
+    state: restarted
+
+- name: zoo stop
+  service:
+    name: zookeeper
+    state: stopped
+
+- name: zoo start
+  service:
+    name: zookeeper
+    state: started

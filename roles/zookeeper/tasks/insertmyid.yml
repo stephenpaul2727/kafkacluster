@@ -1,0 +1,25 @@
+---
+# Insert myid of each zookeeper node by creating myid file
+
+- name: Create myid file
+  file:
+    path: /data/zookeeper/myid
+    state: touch
+
+- name: Insert id of zookeeper node 1
+  lineinfile:
+    path: /data/zookeeper/myid
+    line: "1"
+  when: inventory_hostname == "{{node1}}"
+
+- name: Insert id of zookeeper node 2
+  lineinfile:
+    path: /data/zookeeper/myid
+    line: "2"
+  when: inventory_hostname == "{{node2}}"
+
+- name: Insert id of zookeeper node 3
+  lineinfile:
+    path: /data/zookeeper/myid
+    line: "3"
+  when: inventory_hostname == "{{node3}}"  

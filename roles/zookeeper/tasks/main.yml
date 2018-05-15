@@ -3,3 +3,6 @@
 - include: zookafka.yml
 - include: zooconfig.yml
 - include: zoobootscript.yml
+- include: createzoodatadir.yml
+- include: insertmyid.yml
+- include: startzookeeper.yml

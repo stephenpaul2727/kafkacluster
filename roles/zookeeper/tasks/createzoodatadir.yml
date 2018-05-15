@@ -1,0 +1,9 @@
+---
+# Create data directory for zookeeper
+- name: Create zookeeper data directory
+  become: yes
+  file:
+    path: /data/zookeeper
+    state: directory
+    owner: "{{host_username}}"
+    recurse: yes

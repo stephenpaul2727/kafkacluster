@@ -1,14 +1,14 @@
 ---
 - name: Apply Common Configuration to all the Nodes
   hosts: all
-  remote_user: stephen
+  remote_user: "{{host_username}}"
 
   roles:
     - common
 
 - name: Zookeeper Integration and Configuration with all the server-group nodes
   hosts: server-group
-  remote_user: stephen
+  remote_user: "{{host_username}}"
 
   roles:
     - zookeeper
