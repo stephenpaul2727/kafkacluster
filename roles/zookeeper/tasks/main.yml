@@ -6,3 +6,4 @@
 - include: createzoodatadir.yml
 - include: insertmyid.yml
 - include: startzookeeper.yml
+- include: ruok.yml

@@ -1,0 +1,7 @@
+---
+# Stop zookeeper as a service
+- name: Stop Zookeeper as a service
+  become: yes
+  service:
+    name: zookeeper
+    state: stopped  

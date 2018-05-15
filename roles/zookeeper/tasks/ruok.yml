@@ -1,0 +1,7 @@
+---
+# Zookeeper four letter work 'ruok' check
+- name: Check Zookeeper is okay
+  command: echo "ruok" | nc localhost 2181
+  register: result
+
+- debug: var=result.stdout_lines
