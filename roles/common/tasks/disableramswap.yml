@@ -1,0 +1,12 @@
+---
+# Disable Ram Swap on the Nodes. By Default Linux sets to 60. We will set to 1
+- name: Disable RAM SWAP
+  become: yes
+  command: sysctl vm.swappiness=1
+
+- name: Make RAM Swap Disabled Permanently on Reboot
+  become: yes
+  lineinfile:
+    path: /etc/sysctl.conf
+    state: present
+    line: 'vm.swappiness=1'

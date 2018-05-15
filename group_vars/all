@@ -1,0 +1,5 @@
+# Variables for all the servers
+
+node1 : 192.168.56.96
+node2 : 192.168.56.95
+node3 : 192.168.56.94

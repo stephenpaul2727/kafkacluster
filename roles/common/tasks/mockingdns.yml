@@ -1,0 +1,15 @@
+---
+# Adding DNS Entries of all the nodes in the to-be-formed cluster
+
+- name: Add DNS Entries of all the nodes in the cluster
+  become: yes
+  blockinfile:
+    path: /etc/hosts
+    block: |
+      # Kafka and Zookeeper Mocking DNS
+      {{node1}}   zookeeper1
+      {{node1}}   kafka1
+      {{node2}}   zookeeper2
+      {{node2}}   kafka2
+      {{node3}}   zookeeper3
+      {{node3}}   kafka3

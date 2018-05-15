@@ -1,0 +1,18 @@
+---
+# tasks file for common
+- notify: apt update
+  name: Install Utility Tools
+  become: yes
+  apt: name={{item}} state=present
+  with_items:
+    - wget
+    - ca-certificates
+    - zip
+    - net-tools
+    - vim
+    - nano
+    - tar
+    - netcat
+- include: java.yml
+- include: disableramswap.yml
+- include: mockingdns.yml

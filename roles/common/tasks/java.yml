@@ -1,0 +1,6 @@
+---
+# Install JDK
+- notify: apt update
+  name: Install JDK
+  become: yes
+  apt: name="default-jdk" state="present"

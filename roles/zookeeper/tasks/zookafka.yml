@@ -1,0 +1,28 @@
+---
+# Download Zookeeper, Kafka, Scala in one bundle and build it
+
+- name: Download Kafka Zookeeper Bundle
+  get_url:
+    url: http://apache.mirror.digitalpacific.com.au/kafka/0.10.2.1/kafka_2.12-0.10.2.1.tgz
+    dest: ~/
+
+- name: Unpack the bundle in home directory
+  command: tar -xvzf kafka_2.12-0.10.2.1.tgz
+  warn: false
+
+- name: Rename kafka_2.12-0.10.2.1 to kafka
+  command: mv kafka_2.12-0.10.2.1 kafka
+  warn: false
+
+- name: Find Kafka Files ending in .tgz
+  find:
+    paths: ~/
+    patterns: "^kafka*.tgz$"
+    use_regex: true
+  register: result
+
+- name: Delete Kafka tar file
+  file:
+    path: "{{item.path}}"
+    state: absent
+  with_items: "{{result.files}}"
