@@ -1,3 +1,5 @@
 ---
 # tasks file for zookeeper
 - include: zookafka.yml
+- include: zooconfig.yml
+- include: zoobootscript.yml

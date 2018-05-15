@@ -1,0 +1,9 @@
+---
+# Install Zookeeper bootscripts
+- name: Install Zookeeper Boot Scripts
+  become: yes
+  copy: src=zookeeper dest=/etc/init.d/ mode=a+x owner=root
+
+- name: Update rc.defaults with the new zookeeper bootscript
+  become: yes
+  command: update-rc.d zookeeper defaults
