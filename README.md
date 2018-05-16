@@ -47,7 +47,7 @@ netmask 255.255.255.0
 5. It will run all the roles starting with common configuration, then zookeeper quorum configuration, then kafka cluster configuration. 
 6. Now you have a kafka cluster deployed into your VM's
 
-> This project deploys a zookeeper quorum of 3 nodes and a kafka cluster into three VM's. This setup is okay for development purpose to save resources on your local machine. But for production use different servers for zookeeper and different servers for kafka. Also ensure that they are in different regions to ensure resiliency and reliability.
+> This project deploys a zookeeper quorum of 3 nodes and a kafka cluster into three VM's. This setup is okay for development purpose to save resources on your local machine. But for production deployment scenario, you should use different servers for zookeeper and different servers for kafka. Also ensure that they are in different regions to ensure resiliency and reliability.
 
 ## Testing
 1. Log into all the three VM's using three SSH windows from your local machine.
