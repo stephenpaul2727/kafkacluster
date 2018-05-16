@@ -7,7 +7,7 @@ If you want to test a kafka cluster in development, play around with a kafkaclus
 
 ## Prerequisites
 1. This Project assumes that you have Oracle VirtualBox installed in your local machine.
-2. This Project uses Red Hat's Ansible for automation. Ansible is a python project and you can easily install on your local machine. Please install Ansible on your local machine.
+2. This Project assumes that you have installed Red Hat's Ansible for automation. Ansible is a python-based project and can easily be installed on your machine through pip/apt/yum etc.
 3. The VMs you make will be using an Ubuntu Linux iso. please download the ISO file into your local machine.
 
 
