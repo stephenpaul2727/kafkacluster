@@ -1,0 +1,10 @@
+---
+# Install Kafka bootscripts
+
+- name: Install Kafka Boot Scripts
+  become: yes
+  template: src=kafka dest=/etc/init.d/ mode=a+x owner=root
+
+- name: Update rc.defaults with the new kafka bootscript
+  become: yes
+  command: update-rc.d zookeeper defaults

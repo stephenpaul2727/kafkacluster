@@ -1,2 +1,9 @@
 ---
 # tasks file for kafka
+- include: createsdb.yml
+- include: createkafkadatadir.yml
+- include: filedescriptorlimits.yml
+- include: kafkaconfig.yml
+- include: kafkabootscript.yml
+- include: rebootandwait.yml
+- include: startkafka.yml

@@ -1,0 +1,23 @@
+---
+# Kafka server.properties file configuration parameters
+
+- name: Delete existing server.properties
+  become: yes
+  file:
+    path: /home/{{host_username}}/kafka/config/server.properties
+    state: absent
+
+- name: Copying kafka cluster configuration server.properties for host 1
+  become: yes
+  template: src=server1.properties dest=/home/{{host_username}}/kafka/config/server.properties
+  when: inventory_hostname == "{{node1}}"
+
+- name: Copying kafka cluster configuration server.properties for host 2
+  become: yes
+  template: src=server2.properties dest=/home/{{host_username}}/kafka/config/server.properties
+  when: inventory_hostname == "{{node2}}"
+
+- name: Copying kafka cluster configuration server.properties for host 3
+  become: yes
+  template: src=server3.properties dest=/home/{{host_username}}/kafka/config/server.properties
+  when: inventory_hostname == "{{node3}}"

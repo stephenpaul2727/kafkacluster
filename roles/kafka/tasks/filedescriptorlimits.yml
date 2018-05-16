@@ -1,0 +1,10 @@
+---
+# Change File Descriptor Limits to open 100,000 File Descriptors (needed for kafka)
+
+- name: Change file limits to open 100,00 File Descriptors
+  become: yes
+  blockinfile:
+    path: /etc/security/limits.conf
+    block: |
+      * hard nofile 100000
+      * soft nofile 100000

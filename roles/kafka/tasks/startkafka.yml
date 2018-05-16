@@ -1,0 +1,7 @@
+---
+# Start kafka as a daemon service
+- name: Start Kafka as a service
+  become: yes
+  service:
+    name: kafka
+    state: started

@@ -1,0 +1,7 @@
+---
+# Stop kafka as a service
+- name: Stop Kafka as a service
+  become: yes
+  service:
+    name: kafka
+    state: stopped

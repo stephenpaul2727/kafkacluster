@@ -1,0 +1,49 @@
+---
+# Format and Mount external attached disk (usually sdb)
+
+- name: check if sdb is empty
+  become: yes
+  command: file -s /dev/sdb
+  register: result
+
+- debug:
+    var=result.stdout_lines
+
+- name: Install xfsprogs
+  become: yes
+  apt:
+    name: xfsprogs
+    state: present
+
+- name: Unmount from sdb partition
+  become: yes
+  mount:
+    path: /data/kafka
+    src: /dev/sdb
+    fstype: xfs
+    state: absent
+
+- name: Check any partitions on sdb
+  become: yes
+  parted: device=/dev/sdb unit=MiB
+  register: sdb_info
+
+- name: Remove found partitions on sdb
+  become: yes
+  parted:
+    device: /dev/sdb
+    number: "{{ item.num }}"
+    state: absent
+  with_items:
+   - "{{ sdb_info.partitions }}"
+
+- name: Create partition in sdb
+  become: yes
+  parted:
+    device: /dev/sdb
+    number: 1
+    state: present
+
+- name: Format sdb as xfs
+  become: yes
+  command: mkfs.xfs -f /dev/sdb

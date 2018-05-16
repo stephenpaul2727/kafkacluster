@@ -1,0 +1,18 @@
+---
+# Create a data directory for kafka and mount ext drive
+
+- name: Create kafka data directory
+  become: yes
+  file:
+    path: /data/kafka
+    state: directory
+    owner: "{{host_username}}"
+    recurse: yes
+
+- name: Mount sdb volume
+  become: yes
+  mount:
+    path: /data/kafka
+    src: /dev/sdb
+    fstype: xfs
+    state: mounted

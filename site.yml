@@ -12,3 +12,10 @@
 
   roles:
     - zookeeper
+
+- name: Kafka Integration and Configuration with all the server-group nodes
+  hosts: server-group
+  remote_user: "{{host_username}}"
+
+  roles:
+    - kafka    
